@@ -1,0 +1,1259 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import urllib.request, urllib.parse, urllib.error\n",
+    "from bs4 import BeautifulSoup\n",
+    "import ssl\n",
+    "\n",
+    "# serve per ignorare gli errori SSL\n",
+    "ctx = ssl.create_default_context()\n",
+    "ctx.check_hostname = False\n",
+    "ctx.verify_mode = ssl.CERT_NONE\n",
+    "\n",
+    "url = 'http://py4e-data.dr-chuck.net/known_by_Kalvyn.html'\n",
+    "str_list = []\n",
+    "final_names = []\n",
+    "index = 0\n",
+    "\n",
+    "while index < 7:\n",
+    "    html = urllib.request.urlopen(url, context=ctx).read()\n",
+    "    soup = BeautifulSoup(html, 'html.parser')\n",
+    "    tags = soup('a')\n",
+    "    for tag in tags:\n",
+    "        str_list.append(str(tag.contents[0]))\n",
+    "    name = str_list[17]\n",
+    "    str_list = []\n",
+    "    final_names.append(name)\n",
+    "    url = 'http://py4e-data.dr-chuck.net/known_by_'+name+'.html'\n",
+    "    index = index + 1\n",
+    "\n",
+    "print(final_names)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Amirah', 'Sophie', 'Orson', 'Tamara', 'Courtneylee', 'Macey', 'Sukhi']"
+      ]
+     },
+     "execution_count": 75,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "final_names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Amirah', 'Sophie', 'Orson', 'Tamara']"
+      ]
+     },
+     "execution_count": 73,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "final_names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Kalvyn', 'Amirah', 'Sophie', 'Orson', 'Tamara']"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "final_names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Montgomery', 'Mhairade', 'Butchi', 'Anayah']"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'http://py4e-data.dr-chuck.net/known_by_Montgomery.html'"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "url"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Montgomery', 'Montgomery', 'Montgomery', 'Montgomery']"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "final_names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Montgomery', 'Montgomery', 'Montgomery', 'Montgomery']"
+      ]
+     },
+     "execution_count": 62,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "final_names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Montgomery']"
+      ]
+     },
+     "execution_count": 59,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "final_names"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Montgomery']"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Aniqa',\n",
+       " 'Ogheneruno',\n",
+       " 'Montgomery',\n",
+       " 'Owain',\n",
+       " 'Haniyah',\n",
+       " 'Anona',\n",
+       " 'Edyn',\n",
+       " 'Dallace',\n",
+       " 'Zoe',\n",
+       " 'Kiarash',\n",
+       " 'Tracy',\n",
+       " 'Carmyle',\n",
+       " 'Zahraa',\n",
+       " 'Alanys',\n",
+       " 'Airidas',\n",
+       " 'Melisa',\n",
+       " 'Vivian',\n",
+       " 'Margaret',\n",
+       " 'Hajra',\n",
+       " 'Ajooni',\n",
+       " 'Alexanne',\n",
+       " 'Sudais',\n",
+       " 'Seb',\n",
+       " 'Christin',\n",
+       " 'Jaimie',\n",
+       " 'Jennah',\n",
+       " 'Landon',\n",
+       " 'Mea',\n",
+       " 'Cacie',\n",
+       " 'Colton',\n",
+       " 'Mitchel',\n",
+       " 'Chintu',\n",
+       " 'Hyden',\n",
+       " 'Chrystal',\n",
+       " 'Lincon',\n",
+       " 'Jaden',\n",
+       " 'Roma',\n",
+       " 'Manolo',\n",
+       " 'Clio',\n",
+       " 'Teos',\n",
+       " 'Rihonn',\n",
+       " 'Griffin',\n",
+       " 'Conley',\n",
+       " 'Xiao',\n",
+       " 'Dhyia',\n",
+       " 'Manahil',\n",
+       " 'Diona',\n",
+       " 'Dharam',\n",
+       " 'Danielle',\n",
+       " 'Rori',\n",
+       " 'Lang',\n",
+       " 'Sabila',\n",
+       " 'Zoha',\n",
+       " 'Jemma',\n",
+       " 'Silvana',\n",
+       " 'Asal',\n",
+       " 'Dillon',\n",
+       " 'CJ',\n",
+       " 'Joanna',\n",
+       " 'Atal',\n",
+       " 'Callun',\n",
+       " 'Anubhav',\n",
+       " 'Coray',\n",
+       " 'Graeme',\n",
+       " 'Chrissie',\n",
+       " 'Ayub',\n",
+       " 'Heather',\n",
+       " 'Katie',\n",
+       " 'Inaara',\n",
+       " 'Siddhant',\n",
+       " 'Salymat',\n",
+       " 'Shahd',\n",
+       " 'Anaya',\n",
+       " 'Kevaugh',\n",
+       " 'Thumbiko',\n",
+       " 'Xida',\n",
+       " 'Alaska',\n",
+       " 'Shonagh',\n",
+       " 'Kaiya',\n",
+       " 'Khadija',\n",
+       " 'Kieron',\n",
+       " 'Filip',\n",
+       " 'Dorothy',\n",
+       " 'Kallan',\n",
+       " 'Mena',\n",
+       " 'Abbie',\n",
+       " 'Amyleigh',\n",
+       " 'Annalise',\n",
+       " 'Carrich',\n",
+       " 'Rachel',\n",
+       " 'Etinosa',\n",
+       " 'Amie',\n",
+       " 'Lisa',\n",
+       " 'Liv',\n",
+       " 'Baylie',\n",
+       " 'Jubin',\n",
+       " 'Kacie',\n",
+       " 'Falyn',\n",
+       " 'Conli',\n",
+       " 'Cohen']"
+      ]
+     },
+     "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "str_list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['http://py4e-data.dr-chuck.net/known_by_Aniqa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ogheneruno.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Montgomery.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Owain.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Haniyah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anona.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Edyn.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dallace.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Zoe.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kiarash.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tracy.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Carmyle.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Zahraa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Alanys.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Airidas.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Melisa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Vivian.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Margaret.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Hajra.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ajooni.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Alexanne.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sudais.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Seb.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Christin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jaimie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jennah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Landon.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mea.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Cacie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Colton.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mitchel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Chintu.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Hyden.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Chrystal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lincon.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jaden.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Roma.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Manolo.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Clio.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Teos.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rihonn.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Griffin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Conley.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Xiao.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dhyia.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Manahil.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Diona.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dharam.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Danielle.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rori.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lang.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sabila.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Zoha.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jemma.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Silvana.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Asal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dillon.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_CJ.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Joanna.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Atal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Callun.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anubhav.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Coray.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Graeme.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Chrissie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ayub.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Heather.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Katie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Inaara.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Siddhant.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Salymat.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shahd.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anaya.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kevaugh.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Thumbiko.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Xida.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Alaska.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shonagh.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kaiya.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Khadija.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kieron.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Filip.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dorothy.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kallan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mena.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Abbie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Amyleigh.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Annalise.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Carrich.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rachel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Etinosa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Amie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lisa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Liv.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Baylie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jubin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kacie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Falyn.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Conli.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Cohen.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Joris.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lexis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mhairade.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Boudicca.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Caris.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Emmy.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anish.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nawfal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jesutobiloba.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sunehri.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Freia.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rohaan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Judah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rhys.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Cormack.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jae.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Luisa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Faizaan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Vladimir.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Annalee.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mahdi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lanah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Amrien.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Francis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Arshita.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Macie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Qandeel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dev.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Alanis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Swarnalakshmi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Clair.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Bethlin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Owain.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dante.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ekhlass.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_VJay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Moayd.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Samar.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Keith.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Todd.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jerome.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tarik.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Coco.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Keatin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dre.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shae.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Muryam.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Olivier.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tanner.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sianade.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ronan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ksawery.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Avesta.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Roshni.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Leilah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Yousif.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shaiza.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nicoll.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Agatha.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Luciano.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rebecca.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Calvin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Orlaith.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Isobella.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Malecia.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Louis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kihanna.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Una.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jessamea.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Samir.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lance.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tammam.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Celik.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nikolina.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kaylen.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kiegan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Gus.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Yva.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Neil.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ayshah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Brandi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Annabel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Elyssa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Abaigeal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Muhsin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Faisal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sum.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kym.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sabila.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Eiley.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kori.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Taylor.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Roslin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Susan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sudais.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Philip.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Diarmaid.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Macaulay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Aden.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Joris.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lexis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mhairade.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Boudicca.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Caris.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Emmy.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anish.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nawfal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jesutobiloba.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sunehri.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Freia.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rohaan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Judah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rhys.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Cormack.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jae.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Luisa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Faizaan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Vladimir.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Annalee.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mahdi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lanah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Amrien.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Francis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Arshita.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Macie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Qandeel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dev.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Alanis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Swarnalakshmi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Clair.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Bethlin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Owain.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dante.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ekhlass.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_VJay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Moayd.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Samar.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Keith.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Todd.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jerome.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tarik.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Coco.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Keatin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dre.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shae.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Muryam.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Olivier.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tanner.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sianade.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ronan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ksawery.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Avesta.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Roshni.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Leilah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Yousif.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shaiza.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nicoll.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Agatha.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Luciano.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rebecca.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Calvin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Orlaith.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Isobella.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Malecia.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Louis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kihanna.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Una.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jessamea.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Samir.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lance.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tammam.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Celik.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nikolina.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kaylen.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kiegan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Gus.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Yva.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Neil.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ayshah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Brandi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Annabel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Elyssa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Abaigeal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Muhsin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Faisal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sum.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kym.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sabila.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Eiley.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kori.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Taylor.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Roslin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Susan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sudais.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Philip.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Diarmaid.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Macaulay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Aden.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Joris.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lexis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mhairade.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Boudicca.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Caris.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Emmy.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Anish.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nawfal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jesutobiloba.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sunehri.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Freia.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rohaan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Judah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rhys.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Cormack.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jae.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Luisa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Faizaan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Vladimir.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Annalee.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Mahdi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lanah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Amrien.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Francis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Arshita.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Macie.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Qandeel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dev.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Alanis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Swarnalakshmi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Clair.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Bethlin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Owain.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dante.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ekhlass.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_VJay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Moayd.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Samar.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Keith.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Todd.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jerome.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tarik.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Coco.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Keatin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Dre.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shae.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Muryam.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Olivier.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tanner.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sianade.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ronan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ksawery.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Avesta.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Roshni.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Leilah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Yousif.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Shaiza.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nicoll.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Agatha.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Luciano.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Rebecca.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Calvin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Orlaith.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Isobella.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Malecia.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Louis.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kihanna.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Una.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Jessamea.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Samir.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Lance.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Tammam.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Celik.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Nikolina.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kaylen.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kiegan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Gus.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Yva.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Neil.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Ayshah.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Brandi.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Annabel.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Elyssa.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Abaigeal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Muhsin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Faisal.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sum.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kym.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sabila.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Eiley.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Kori.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Taylor.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Roslin.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Susan.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Sudais.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Philip.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Diarmaid.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Macaulay.html',\n",
+       " 'http://py4e-data.dr-chuck.net/known_by_Aden.html']"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "urlist"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'http://py4e-data.dr-chuck.net/known_by_Aden.html'"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'p'"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<li style=\"margin-top: 36px;\"><a href=\"http://py4e-data.dr-chuck.net/known_by_Kaine.html\">Kaine</a></li>"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
